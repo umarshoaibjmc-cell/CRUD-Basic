@@ -1,0 +1,6 @@
+Ali;Hamza;14
+Ali;Ham;15
+Ali;Hza;19
+Ali;Haza;24
+Ali;Hmza;54
+Ali; KHAN ; 1000
