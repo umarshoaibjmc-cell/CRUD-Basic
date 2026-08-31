@@ -2,7 +2,12 @@ const http = require('node:http');
 
 const route_404 = require('./routes/_404');
 const routeUser = require('./routes/user');
-const getAllUsers = require('./routes/allUsers')
+const getAllUsers = require('./routes/allUsers');
+const createUser = require('./routes/createUser');
+const updateUser = require('./routes/updateUser');
+const updateData = require('./routes/updateUser2')
+const deleteUser = require('./routes/deleteUser');
+
 
 const newServer = http.createServer(async function (req, res) {
 
@@ -10,21 +15,30 @@ const newServer = http.createServer(async function (req, res) {
     res.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,PATCH,DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-
     const url = req.url;
 
-    switch (url) {
-        case '/users':
+
+        if (req.method === 'GET' && url === '/users') {
             await getAllUsers(req, res);
-            break;
- default:
-        if (url.startsWith('/user/')) {
+        }
+        else if (req.method === 'GET' && url.startsWith('/user/')) {
             await routeUser(req, res);
-        } else {
+        }
+        else if (req.method === 'POST' && url === "/user") {
+            await createUser(req, res);
+        }
+        else if (req.method === 'PUT'&& url.startsWith('/user/')) {
+            await updateUser(req, res);
+        }
+        else if (req.method === 'PATCH' && url.startsWith('/user/')) {
+            await updateData(req, res);
+        }
+        else if(req.method === 'DELETE' && url.startsWith('/user/')) {
+            await deleteUser(req, res);
+        }
+        else {
             route_404(req, res);
         }
-        break;
-    }
     return;
 })
 

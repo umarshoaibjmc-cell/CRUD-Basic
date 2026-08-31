@@ -1,6 +1,10 @@
 Ali;Hamza;14
-Ali;Ham;15
-Ali;Hza;19
-Ali;Haza;24
+Hector;Salamanca;80
+Ali;Murtaza;24
 Ali;Hmza;54
-Ali; KHAN ; 1000
+Umair;Ali;99
+Umair;farooq;25
+Gus;fring;45
+Umair;Ali;99
+JESSE;PINKMAN;22
+MIKE;ERHMANTRAUT;60
