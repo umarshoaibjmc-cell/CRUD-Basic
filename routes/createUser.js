@@ -19,6 +19,10 @@ const createUser = async (req, res) => {
       const allUsers = allUsersText.split("\r\n");
       const newId = allUsers.length + 1;
 
+      newUser.firstName = String(newUser.firstName).replace(/;/g, "");
+      newUser.lastName = String(newUser.lastName).replace(/;/g, "");
+      newUser.age = Number(String(newUser.age).replace(/;/g, ""));
+
       const newUserLine = `${newUser.firstName};${newUser.lastName};${newUser.age}`;
 
       await fs.appendFile(filePath, `\r\n${newUserLine}`);
